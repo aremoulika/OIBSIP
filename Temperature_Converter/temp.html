@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Temp converter</title>
+<style>
+    body {
+        background-image: url("https://images.pexels.com/photos/289618/pexels-photo-289618.jpeg?auto=compress&cs=tinysrgb&w=600");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        margin: 0;
+    }
+    table {
+        width: 60%;
+        margin: 6% auto;
+        background-color: rgba(9, 41, 80, 0.7);
+        border-radius: 10px;
+        box-shadow: 0.3rem 0.3rem white, -0.3rem -0.3rem #ccc;
+    }
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+    #num,
+    #select,
+    #button {
+        width: 100%; 
+        height: 60px; 
+        padding: 10px;
+        box-sizing: border-box; 
+        font-size: 20px;
+    }
+    p {
+        color: white;
+        font-size: 50px;
+    }
+    #button {
+        padding: 10px;
+        margin: 5%;
+        border-radius: 20px;
+        background-color:pink;
+        font-size: 20px;
+    }
+    #temp {
+        color: white;
+        font-size: 50px;
+    }
+    #head{
+        margin: 40px;
+        color: black;
+        font-size: 50px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    }
+</style>
+
+    </head>
+    <body>
+        <h1 align="center" id="head"><u>TEMPERATURE CONVERTER</u></h1>
+        <table align="center">
+            <tr>
+                <td><input type="number" id="num" placeholder="ENTER TEMPERATURE" oninput="Converter(this.value)" ></td>
+                <td align="center"><p> = </p> </td></td>
+                <td><span id="temp"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="select">
+                        <option value="0" align="center">SELECT</option>
+                        <option value="1" align="center">CELSIUS TO FAHRENHEIT</option>
+                        <option value="2" align="center">FAHRENHEIT to CELSIUS</option>
+                        </select>
+                </td>
+                <td></td>
+                <td>
+                    <button type="submit" id="button" onclick="Clear()">CLEAR</button>
+                </td>
+            </tr>
+
+           
+        </table>
+
+        <script>
+            function Converter(result){
+                result=parseFloat(result);
+                const option=document.getElementById("select").value;
+                if(option=="1"){
+                    result=result*(9/5)+32;
+                }
+                else  if(option=="2"){
+                    result=(result-32)*5/9;
+                }
+                document.getElementById("temp").innerHTML=result.toFixed(2);
+            }
+            function Clear(){
+                document.getElementById("num").value="";
+                document.getElementById("temp").innerHTML="";
+            }
+          
+        </script>
+    </body>
+</html>
+
+<!-- 
+<h1>Temperature Converter</h1>
+<tr>
+<input type="number" id="num" placeholder="enter temp" oninput="Converter(this.value)" >
+<select id="select">
+<option value="1">Celcius</option>
+<option value="2">FahreinHeit</option>
+</select>
+<button type="submit" id="button" onclick="Clear()">clear</button>
+<p>Result: <span id="temp"></span></p> -->
